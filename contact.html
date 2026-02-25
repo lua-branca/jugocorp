@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>お問い合わせ | 一般社団法人 十郷 (JUGO)</title>
+    <meta name="description" content="一般社団法人十郷へのお問い合わせはこちらから。防災備蓄、農業支援、取材依頼など、お気軽にご連絡ください。">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Shippori+Mincho:wght@500;700&display=swap"
+        rel="stylesheet">
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-525209061"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'G-525209061');
+    </script>
+</head>
+
+<body>
+
+    <header class="header">
+        <div class="header__inner">
+            <h1 class="header__logo">
+                <a href="index.html">
+                    <img src="assets/images/logo_lg.png" alt="JUGO">
+                    <span class="header__logo-text">一般社団法人 十郷</span>
+                </a>
+            </h1>
+            <nav class="header__nav">
+                <ul>
+                    <li><a href="business.html">Business</a></li>
+                    <li><a href="products.html">Products</a></li>
+                    <li><a href="company.html">Company</a></li>
+                    <li><a href="contact.html" class="active btn btn--nav">Contact</a></li>
+                </ul>
+            </nav>
+            <button class="header__menu-trigger"><span></span><span></span><span></span></button>
+        </div>
+    </header>
+
+    <main>
+        <div class="page-header">
+            <h1 class="page-header__title">Contact</h1>
+            <p class="page-header__sub">お問い合わせ</p>
+        </div>
+
+        <section class="section">
+            <div class="container">
+                <div class="contact-intro text-center">
+                    <p class="section__lead">
+                        事業に関するご相談、協業のご提案、取材のご依頼など、<br>
+                        どのようなことでもお気軽にお問い合わせください。<br>
+                        皆さまからのご連絡を心よりお待ちしております。
+                    </p>
+                </div>
+
+                <div class="contact-grid">
+                    <!-- Web Form (Primary) -->
+                    <div class="contact-form-wrapper">
+                        <h3>お問い合わせフォーム</h3>
+                        <p class="form-note">必要事項をご記入の上、送信ボタンを押してください。<br>通常3営業日以内に担当者よりご連絡いたします。</p>
+
+                        <div id="formMessage" class="form-message"
+                            style="display: none; padding: 15px; margin-bottom: 20px; border-radius: 4px; text-align: center;">
+                        </div>
+
+                        <form id="contactForm" action="php/contact.php" method="POST" class="contact-form">
+                            <!-- Bot protection (Honeypot) -->
+                            <input type="text" name="confirm_code" style="display:none;">
+
+                            <div class="form-group">
+                                <label for="name">お名前 <span class="required">必須</span></label>
+                                <input type="text" id="name" name="name" placeholder="例）十郷 太郎" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="email">メールアドレス <span class="required">必須</span></label>
+                                <input type="email" id="email" name="email" placeholder="例）info@jugo-japan.jp" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="phone">電話番号</label>
+                                <input type="tel" id="phone" name="phone" placeholder="例）090-1234-5678">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="subject">件名</label>
+                                <input type="text" id="subject" name="subject" placeholder="例）イベントの協賛について">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="message">お問い合わせ内容 <span class="required">必須</span></label>
+                                <textarea id="message" name="message" rows="8" placeholder="お問い合わせ内容をご記入ください"
+                                    required></textarea>
+                            </div>
+
+                            <div class="form-submit">
+                                <button type="submit" class="btn btn--primary">内容を確認して送信する</button>
+                            </div>
+                        </form>
+                    </div>
+
+                    <!-- Phone Contact (Secondary) -->
+                    <div class="contact-info-side">
+                        <div class="contact-phone">
+                            <h3>お電話でのお問い合わせ</h3>
+                            <p class="phone-desc">お急ぎの場合や、フォームが利用できない場合はお電話ください。</p>
+                            <p class="phone-number">0254-75-5977</p>
+                            <p class="phone-note">受付時間: 10:00 - 19:00（土日祝休）</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <!-- (Same footer as index) -->
+        <div class="container">
+            <div class="footer__inner">
+                <div class="footer__logo">
+                    <h2>一般社団法人 十郷</h2>
+                    <p>〒959-3252 新潟県岩船郡関川村大字高田81-2</p>
+                    <div class="footer__contact">
+                        <a href="tel:0254-75-5977" class="footer__tel">TEL: 0254-75-5977</a>
+                        <span class="footer__time">受付時間 10:00〜19:00（土日祝休）</span>
+                    </div>
+                </div>
+                <div class="footer__nav">
+                    <ul>
+                        <li><a href="index.html">Top</a></li>
+                        <li><a href="business.html">Business</a></li>
+                        <li><a href="products.html">Products</a></li>
+                        <li><a href="company.html">Company</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                    <ul class="footer__legal">
+                        <li><a href="privacy.html">プライバシーポリシー</a></li>
+                        <li><a href="terms.html">利用規約</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer__copy">
+                &copy; 2026 一般社団法人 十郷 All Rights Reserved.
+            </div>
+        </div>
+    </footer>
+    <script src="js/main.js"></script>
+</body>
+
+</html>
