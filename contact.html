@@ -66,9 +66,6 @@
                         <h3>お問い合わせフォーム</h3>
                         <p class="form-note">必要事項をご記入の上、送信ボタンを押してください。<br>通常3営業日以内に担当者よりご連絡いたします。</p>
 
-                        <div id="formMessage" class="form-message"
-                            style="display: none; padding: 15px; margin-bottom: 20px; border-radius: 4px; text-align: center;">
-                        </div>
 
                         <form id="contactForm" action="php/contact.php" method="POST" class="contact-form">
                             <!-- Bot protection (Honeypot) -->
@@ -102,6 +99,10 @@
 
                             <div class="form-submit">
                                 <button type="submit" class="btn btn--primary">内容を確認して送信する</button>
+                            </div>
+
+                            <div id="formMessage" class="form-message"
+                                style="display: none; padding: 15px; margin-top: 20px; border-radius: 4px; text-align: center;">
                             </div>
                         </form>
                     </div>
