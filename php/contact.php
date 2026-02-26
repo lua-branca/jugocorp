@@ -40,21 +40,29 @@ function sendToGas($url, $data)
 }
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    // Get form data
-    $name = trim($_POST['name'] ?? '');
-    $email = trim($_POST['email'] ?? '');
-    $phone = trim($_POST['phone'] ?? '');
-    $subject_input = trim($_POST['subject'] ?? '');
+    // Basic Sanitization & Header Injection Prevention
+    // Remove all line breaks from single line inputs (Name, Email, Phone, Subject)
+    $name = str_replace(["\r", "\n", "%0a", "%0d"], "", trim($_POST['name'] ?? ''));
+    $email = str_replace(["\r", "\n", "%0a", "%0d"], "", trim($_POST['email'] ?? ''));
+    $phone = str_replace(["\r", "\n", "%0a", "%0d"], "", trim($_POST['phone'] ?? ''));
+    $subject_input = str_replace(["\r", "\n", "%0a", "%0d"], "", trim($_POST['subject'] ?? ''));
     $message = trim($_POST['message'] ?? '');
 
-    // Validation
+    // Validation (Required fields)
     if (empty($name) || empty($email) || empty($message)) {
         echo json_encode(['result' => 'error', 'message' => '必須項目が入力されていません。']);
         exit;
     }
 
+    // Validation (Email format)
     if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
         echo json_encode(['result' => 'error', 'message' => 'メールアドレスの形式が正しくありません。']);
+        exit;
+    }
+
+    // Security (Length limits to prevent DoS handling massive payloads)
+    if (mb_strlen($name) > 100 || mb_strlen($email) > 255 || mb_strlen($phone) > 50 || mb_strlen($subject_input) > 100 || mb_strlen($message) > 5000) {
+        echo json_encode(['result' => 'error', 'message' => '入力文字数が制限を超えています。内容を短くして再度お試しください。']);
         exit;
     }
 
