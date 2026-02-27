@@ -1156,16 +1156,22 @@ a.sns-icon:not([href]) {
    ========================================================================== */
 .message-block {
     display: flex;
-    gap: 60px;
-    align-items: center;
+    gap: 50px;
+    /* 少し狭めて一体感を出す */
+    align-items: flex-start;
+    /* 上揃えにして上の余白感を減らす */
 }
 
 .message__image {
-    flex: 1;
+    flex: 5;
+    /* 1から5に増やして画像領域を広げる */
 }
 
 .message__content {
-    flex: 1;
+    flex: 6;
+    /* 1から6に変更しつつ、画像とのバランスをとる */
+    padding-top: 10px;
+    /* テキストの開始位置を微調整 */
 }
 
 .message__sign {
