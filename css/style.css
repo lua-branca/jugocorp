@@ -1806,7 +1806,9 @@ a.sns-icon:not([href]) {
 .business-visual img {
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    object-fit: contain;
+    background-color: #06070a;
+    /* Match the dark background of the images */
     transition: transform 0.8s cubic-bezier(0.25, 1, 0.5, 1);
 }
 
