@@ -21,7 +21,7 @@ jobs:
           # The root of the repository is deployed
           local-dir: ./
           # Xserverのテスト環境ドキュメントルートへ
-          server-dir: ./xs033143.xsrv.jp/public_html/
+          server-dir: ./jugo-japan.jp/public_html/
           exclude: |
             **/.git*
             **/.git*/**
