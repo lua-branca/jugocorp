@@ -1,0 +1,941 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>米缶 (KOME CAN) | 水・火・電気不要の備蓄ごはん | 一般社団法人 十郷</title>
+    <meta name="description" content="水も火も電気もいらない。開けてすぐ、ふっくらごはん。十郷の備蓄食「米缶（KOME CAN）」2026年3月11日正式販売開始。新潟県産コシヒカリ100%使用。">
+    <!-- Favicon -->
+    <link rel="icon" href="assets/images/favicon.png" type="image/png">
+    <link rel="apple-touch-icon" href="assets/images/favicon.png">
+    <!-- OGP -->
+    <meta property="og:title" content="米缶 (KOME CAN) | 水・火・電気不要の備蓄ごはん">
+    <meta property="og:description" content="開けてすぐ、ふっくらごはん。十郷の備蓄食「米缶」2026年3月11日正式販売開始。">
+    <meta property="og:type" content="product">
+    <meta property="og:url" content="https://jugo-japan.jp/kome-can.html">
+    <meta property="og:image" content="https://jugo-japan.jp/assets/images/og-image.png">
+    <meta property="og:site_name" content="一般社団法人 十郷 (JUGO)">
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Shippori+Mincho:wght@500;700&display=swap"
+        rel="stylesheet">
+    <!-- GA -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-X987DFDHNH"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-X987DFDHNH');
+    </script>
+
+    <style>
+        /* ============================================================
+           kome-can.html 固有スタイル
+           ============================================================ */
+
+        /* Hero: 米缶専用ダークヒーロー */
+        .kc-hero {
+            min-height: 100vh;
+            background-color: #06070a;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+            padding-top: 70px;
+        }
+
+        .kc-hero__bg-img {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0.25;
+        }
+
+        .kc-hero__content {
+            position: relative;
+            z-index: 2;
+            display: flex;
+            align-items: center;
+            gap: 60px;
+            width: 100%;
+            max-width: 1100px;
+            padding: 80px 40px 60px;
+            text-align: left;
+        }
+
+        .kc-hero__text {
+            flex: 1 1 500px;
+            color: #fff;
+        }
+
+        .kc-hero__product-wrap {
+            flex: 0 0 340px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .kc-hero__product-wrap img {
+            width: 100%;
+            max-width: 320px;
+            filter: drop-shadow(0 20px 60px rgba(197, 160, 89, 0.5));
+            animation: floatImg 5s ease-in-out infinite alternate;
+        }
+
+        @media (max-width: 900px) {
+            .kc-hero__content {
+                flex-direction: column;
+                text-align: center;
+                padding: 80px 24px 60px;
+                gap: 40px;
+            }
+
+            .kc-hero__product-wrap {
+                flex: 0 0 auto;
+                order: -1;
+            }
+
+            .kc-hero__cta-group {
+                justify-content: center;
+            }
+        }
+
+        .kc-hero__launch-badge {
+            display: inline-block;
+            background-color: var(--color-gold);
+            color: #fff;
+            font-size: 0.85rem;
+            font-weight: 700;
+            letter-spacing: 0.15em;
+            padding: 12px 30px;
+            border-radius: 50px;
+            margin-bottom: 50px;
+        }
+
+        .kc-hero__title {
+            font-family: var(--font-serif);
+            font-size: 4.5rem;
+            font-weight: 700;
+            line-height: 1.3;
+            margin-bottom: 20px;
+            letter-spacing: 0.05em;
+        }
+
+        @media (max-width: 768px) {
+            .kc-hero__title {
+                font-size: 2.8rem;
+            }
+        }
+
+        .kc-hero__sub {
+            font-size: 1.2rem;
+            color: rgba(255, 255, 255, 0.75);
+            margin-bottom: 60px;
+            line-height: 2;
+        }
+
+
+
+        /* Scroll Indicator */
+        .kc-scroll-down {
+            position: absolute;
+            bottom: 40px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 0.8rem;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            animation: bounce 2s infinite;
+        }
+
+        .kc-scroll-down::after {
+            content: "";
+            width: 1px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.4);
+            margin-top: 10px;
+        }
+
+        @keyframes bounce {
+
+            0%,
+            20%,
+            50%,
+            80%,
+            100% {
+                transform: translateY(0) translateX(-50%);
+            }
+
+            40% {
+                transform: translateY(-10px) translateX(-50%);
+            }
+
+            60% {
+                transform: translateY(-5px) translateX(-50%);
+            }
+        }
+
+        /* Hero Text Adj */
+        .kc-hero__sub {
+            font-size: 1.25rem;
+            color: rgba(255, 255, 255, 0.85);
+            margin-bottom: 30px;
+            line-height: 2;
+        }
+
+        /* Zero Section */
+        .kc-zero-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            margin-top: 60px;
+        }
+
+        @media (max-width: 768px) {
+            .kc-zero-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .kc-zero-card {
+            background: #fff;
+            border-radius: 16px;
+            padding: 40px 30px;
+            text-align: center;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.07);
+            transition: transform 0.3s;
+        }
+
+        .kc-zero-card:hover {
+            transform: translateY(-8px);
+        }
+
+        .kc-zero-card__num {
+            font-family: var(--font-serif);
+            font-size: 3.5rem;
+            font-weight: 700;
+            color: var(--color-gold);
+            opacity: 0.35;
+            line-height: 1;
+            margin-bottom: 10px;
+        }
+
+        .kc-zero-card__label-en {
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 0.2em;
+            color: var(--color-gold);
+            text-transform: uppercase;
+            margin-bottom: 5px;
+        }
+
+        .kc-zero-card__label-ja {
+            font-family: var(--font-serif);
+            font-size: 1.6rem;
+            font-weight: 700;
+            color: var(--color-primary);
+            margin-bottom: 15px;
+        }
+
+        .kc-zero-card p {
+            font-size: 0.95rem;
+            line-height: 1.9;
+            color: #666;
+        }
+
+        /* Features */
+        .kc-feature-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin-top: 60px;
+        }
+
+        @media (max-width: 768px) {
+            .kc-feature-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .kc-feature-card {
+            background: #fff;
+            border-radius: 16px;
+            padding: 40px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.06);
+        }
+
+        .kc-feature-card__tag {
+            display: inline-block;
+            background: var(--color-primary);
+            color: #fff;
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            padding: 4px 14px;
+            border-radius: 4px;
+            margin-bottom: 15px;
+        }
+
+        .kc-feature-card h3 {
+            font-family: var(--font-serif);
+            font-size: 1.4rem;
+            color: var(--color-primary);
+            margin-bottom: 15px;
+        }
+
+        .kc-feature-card p {
+            font-size: 0.95rem;
+            line-height: 1.9;
+            color: #555;
+        }
+
+        .kc-feature-card ul {
+            list-style: none;
+            margin-top: 15px;
+            padding: 0;
+        }
+
+        .kc-feature-card ul li {
+            font-size: 0.9rem;
+            color: #666;
+            padding: 5px 0;
+            padding-left: 20px;
+            position: relative;
+        }
+
+        .kc-feature-card ul li::before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: var(--color-gold);
+            font-weight: 700;
+        }
+
+        /* Scene */
+        .kc-scene-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+            margin-top: 60px;
+        }
+
+        @media (max-width: 768px) {
+            .kc-scene-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .kc-scene-card {
+            border-radius: 12px;
+            overflow: hidden;
+            position: relative;
+            aspect-ratio: 4/3;
+            background: var(--color-primary);
+        }
+
+        .kc-scene-card__bg {
+            position: absolute;
+            inset: 0;
+            background-size: cover;
+            background-position: center;
+            opacity: 0.5;
+            transition: transform 0.5s;
+        }
+
+        .kc-scene-card:hover .kc-scene-card__bg {
+            transform: scale(1.08);
+        }
+
+        .kc-scene-card__overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 24px;
+            background: linear-gradient(transparent, rgba(0, 0, 0, 0.7));
+            color: #fff;
+        }
+
+        .kc-scene-card__en {
+            font-size: 0.7rem;
+            letter-spacing: 0.2em;
+            color: var(--color-gold);
+            margin-bottom: 4px;
+        }
+
+        .kc-scene-card__ja {
+            font-family: var(--font-serif);
+            font-size: 1.25rem;
+            font-weight: 700;
+        }
+
+        .kc-scene-card__desc {
+            font-size: 0.85rem;
+            color: rgba(255, 255, 255, 0.8);
+            margin-top: 4px;
+        }
+
+        /* Price Cards (New) */
+        .kc-pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            margin: 60px auto 0;
+            max-width: 1000px;
+        }
+
+        @media (max-width: 900px) {
+            .kc-pricing-grid {
+                grid-template-columns: 1fr;
+                max-width: 400px;
+            }
+        }
+
+        .kc-price-card {
+            background: #fff;
+            border-radius: 16px;
+            padding: 40px 30px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            position: relative;
+            border: 2px solid transparent;
+            transition: transform 0.3s, border-color 0.3s;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .kc-price-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--color-gold);
+        }
+
+        .kc-price-card--popular {
+            border-color: var(--color-gold);
+            transform: scale(1.05);
+            z-index: 2;
+        }
+
+        @media (max-width: 900px) {
+            .kc-price-card--popular {
+                transform: none;
+            }
+        }
+
+        .kc-price-card__badge {
+            position: absolute;
+            top: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--color-gold);
+            color: #fff;
+            font-size: 0.85rem;
+            font-weight: bold;
+            padding: 6px 20px;
+            border-radius: 20px;
+            letter-spacing: 0.1em;
+            white-space: nowrap;
+        }
+
+        .kc-price-card__title {
+            font-family: var(--font-serif);
+            font-size: 1.8rem;
+            color: var(--color-primary);
+            margin-bottom: 10px;
+        }
+
+        .kc-price-card__desc {
+            font-size: 0.9rem;
+            color: #666;
+            margin-bottom: 30px;
+        }
+
+        .kc-price-card__amount {
+            font-family: var(--font-serif);
+            font-size: 3rem;
+            color: #e50012;
+            font-weight: 700;
+            line-height: 1;
+            margin-bottom: 5px;
+        }
+
+        .kc-price-card__amount span {
+            font-size: 1.2rem;
+            margin-left: 2px;
+            color: #333;
+        }
+
+        .kc-price-card__unit {
+            font-size: 0.85rem;
+            color: #333;
+            font-weight: bold;
+            margin-bottom: 30px;
+        }
+
+        .kc-price-card__btn {
+            margin-top: auto;
+            display: inline-block;
+            background: var(--color-primary);
+            color: #fff;
+            padding: 15px 30px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background 0.3s;
+        }
+
+        .kc-price-card__btn:hover {
+            background: var(--color-gold);
+        }
+
+        .kc-price-card--popular .kc-price-card__btn {
+            background: var(--color-gold);
+        }
+
+        .kc-price-card--popular .kc-price-card__btn:hover {
+            background: var(--color-primary);
+        }
+
+        .kc-price-note {
+            text-align: center;
+            margin-top: 40px;
+            font-size: 0.9rem;
+            color: #e50012;
+            font-weight: bold;
+        }
+
+        /* CTA Section */
+        .kc-cta {
+            background-color: #f9f8f6;
+            color: var(--color-primary);
+            padding: 100px 0;
+            text-align: center;
+        }
+
+        .kc-cta__lead {
+            font-size: 1.1rem;
+            margin-bottom: 40px;
+            color: #555;
+            line-height: 1.8;
+        }
+
+        .kc-cta-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 16px;
+            justify-content: center;
+        }
+
+        .kc-cta-btn--primary {
+            font-size: 1.1rem;
+            padding: 18px 50px;
+            background: var(--color-gold) !important;
+            border-color: var(--color-gold) !important;
+            white-space: nowrap;
+        }
+
+        .kc-cta-btn--primary:hover {
+            background: #fff !important;
+            color: var(--color-gold) !important;
+        }
+
+        .kc-cta-btn--outline {
+            font-size: 1.1rem;
+            padding: 18px 50px;
+            color: var(--color-primary) !important;
+            border-color: var(--color-primary) !important;
+            white-space: nowrap;
+        }
+
+        .kc-cta-btn--outline:hover {
+            background: var(--color-primary) !important;
+            color: #fff !important;
+        }
+
+        /* LINE CTA Section */
+        .kc-line-cta {
+            padding: 60px 0 100px;
+            background-color: #fff;
+        }
+
+        .kc-line-banner {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: #fdfdfc;
+            max-width: 900px;
+            margin: 0 auto;
+            border-radius: 12px;
+            padding: 40px 50px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.03);
+            border: 1px solid #eaeaea;
+        }
+
+        @media (max-width: 768px) {
+            .kc-line-banner {
+                flex-direction: column;
+                text-align: center;
+                padding: 40px 30px;
+            }
+        }
+
+        .kc-line-banner__content {
+            flex: 1;
+            padding-right: 40px;
+        }
+
+        @media (max-width: 768px) {
+            .kc-line-banner__content {
+                padding-right: 0;
+                margin-bottom: 30px;
+            }
+        }
+
+        .kc-line-banner__label {
+            display: inline-block;
+            font-size: 0.8rem;
+            color: #06C755;
+            font-weight: bold;
+            letter-spacing: 0.1em;
+            margin-bottom: 10px;
+        }
+
+        .kc-line-banner__title {
+            font-family: var(--font-serif);
+            font-size: 1.5rem;
+            color: #1a2a44;
+            margin-bottom: 15px;
+        }
+
+        .kc-line-banner__desc {
+            font-size: 0.95rem;
+            color: #666;
+            line-height: 1.8;
+            margin: 0;
+        }
+
+        .btn--line {
+            background-color: #06C755;
+            color: #fff !important;
+            font-size: 1rem;
+            font-weight: bold;
+            padding: 16px 40px;
+            border-radius: 50px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            transition: all 0.3s;
+            white-space: nowrap;
+        }
+
+        .btn--line:hover {
+            background-color: #05b04b;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(6, 199, 85, 0.3);
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Header (共通) -->
+    <header class="header">
+        <div class="header__inner">
+            <h1 class="header__logo">
+                <a href="../index.html">
+                    <img src="assets/images/logo_lg.png" alt="JUGO">
+                    <span class="header__logo-text">一般社団法人 十郷</span>
+                </a>
+            </h1>
+            <nav class="header__nav">
+                <ul>
+                    <li><a href="../business.html">Business</a></li>
+                    <li><a href="../products.html" class="active">Products</a></li>
+                    <li><a href="../company.html">Company</a></li>
+                    <li><a href="../contact.html" class="btn btn--nav">Contact</a></li>
+                </ul>
+            </nav>
+            <button class="header__menu-trigger" aria-label="Menu">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </header>
+
+    <main>
+
+        <!-- ① Hero -->
+        <section class="kc-hero">
+            <img src="assets/images/kome_can_final.jpg" alt="" class="kc-hero__bg-img">
+            <div class="kc-hero__content">
+                <div class="kc-hero__text">
+                    <span class="kc-hero__launch-badge">🎉 2026年3月11日 正式販売スタート</span>
+                    <p class="kc-hero__title">水も、火も、<br>電気もいらない。</p>
+                    <p class="kc-hero__sub">
+                        フタを開けて、そのまま美味しい。<br>
+                        日常と「もしも」の境界線をなくす、<br>
+                        新しいフードサバイバルの形。
+                    </p>
+                </div>
+                <div class="kc-hero__product-wrap">
+                    <img src="assets/images/komekan_transparent.png" alt="米缶 KOME CAN">
+                </div>
+            </div>
+
+            <div class="kc-scroll-down">Scroll</div>
+        </section>
+
+        <!-- ② Concept: 0の約束 -->
+        <section class="section bg-gray">
+            <div class="container">
+                <div class="text-center">
+                    <span class="section__label">Concept</span>
+                    <h2 class="section__title">「0」の約束</h2>
+                    <p class="section__lead">米缶は、3つの「ゼロ」をあなたに届けます。</p>
+                </div>
+                <div class="kc-zero-grid">
+                    <div class="kc-zero-card">
+                        <div class="kc-zero-card__num">01</div>
+                        <div class="kc-zero-card__label-en">PREPARATION</div>
+                        <div class="kc-zero-card__label-ja">準備ゼロ</div>
+                        <p>水も、電気も、ガスもすべて不要。<br>災害時や登山など、ライフラインが寸断された環境でも、プルトップを開けるだけで食事が完結します。</p>
+                    </div>
+                    <div class="kc-zero-card">
+                        <div class="kc-zero-card__num">02</div>
+                        <div class="kc-zero-card__label-en">WAITING</div>
+                        <div class="kc-zero-card__label-ja">待ち時間ゼロ</div>
+                        <p>お湯を沸かしたり、15分待ったりする必要はありません。<br>缶を開けた「その瞬間」が、一番美味しい食べごろです。</p>
+                    </div>
+                    <div class="kc-zero-card">
+                        <div class="kc-zero-card__num">03</div>
+                        <div class="kc-zero-card__label-en">GUILT</div>
+                        <div class="kc-zero-card__label-ja">罪悪感ゼロ</div>
+                        <p>無添加・保存料不使用にこだわり、小さなお子様からお年寄りまで安心。<br>「非常食だから」という妥協は一切ありません。</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ③ Features: こだわり -->
+        <section class="section">
+            <div class="container">
+                <div class="text-center">
+                    <span class="section__label">Features</span>
+                    <h2 class="section__title">米缶のこだわり</h2>
+                </div>
+                <div class="kc-feature-grid">
+                    <div class="kc-feature-card">
+                        <span class="kc-feature-card__tag">TASTE</span>
+                        <h3>農家が本気で作った、感動する備蓄食</h3>
+                        <p>「非常食は我慢して食べるもの」という常識を覆すため、新潟県関川村の一等米コシヒカリを100%使用。ふっくらとした食感と、お米本来の甘みにこだわり抜きました。</p>
+                        <ul>
+                            <li><strong>新潟県産コシヒカリ100%使用</strong></li>
+                            <li><strong>食品添加物・保存料は一切不使用</strong></li>
+                            <li>冷めたままでも美味しい独自の炊き上げ製法</li>
+                        </ul>
+                    </div>
+                    <div class="kc-feature-card">
+                        <span class="kc-feature-card__tag" style="background-color: var(--color-gold);">SAFETY</span>
+                        <h3>いざという時、絶対に裏切らない安心設計</h3>
+                        <p>ご家庭のローリングストックから過酷なアウトドア環境まで。長期保存はもちろん、パッケージの頑丈さやアレルギーへの配慮など、すべての人が安心して手に取れる仕様です。</p>
+                        <ul>
+                            <li><strong>製造から3年間の長期保管が可能</strong></li>
+                            <li><strong>特定原材料等28品目不使用（アレルギー対応）</strong></li>
+                            <li>完全密封の缶詰仕様で水害や虫・カビをシャットアウト</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ④ Scene: 使えるシーン -->
+        <section class="section bg-gray">
+            <div class="container">
+                <div class="text-center">
+                    <span class="section__label">Scene</span>
+                    <h2 class="section__title">こんな時に、米缶。</h2>
+                </div>
+                <div class="kc-scene-grid">
+                    <div class="kc-scene-card">
+                        <div class="kc-scene-card__bg"
+                            style="background-image: url('assets/images/kome_can_scene_disaster.png');">
+                        </div>
+                        <div class="kc-scene-card__overlay">
+                            <div class="kc-scene-card__en">DISASTER</div>
+                            <div class="kc-scene-card__ja">もしもの時の、確かな備え</div>
+                            <div class="kc-scene-card__desc">停電や断水が起きても、家族の健康を守る「温存された日常」として。</div>
+                        </div>
+                    </div>
+                    <div class="kc-scene-card">
+                        <div class="kc-scene-card__bg"
+                            style="background-image: url('assets/images/kome_can_scene_outdoor.png');">
+                        </div>
+                        <div class="kc-scene-card__overlay">
+                            <div class="kc-scene-card__en">OUTDOOR</div>
+                            <div class="kc-scene-card__ja">大自然の中に持ち込む贅沢</div>
+                            <div class="kc-scene-card__desc">荷物を減らしたい登山や、手軽に本格的な主食が欲しいキャンプに。</div>
+                        </div>
+                    </div>
+                    <div class="kc-scene-card">
+                        <div class="kc-scene-card__bg"
+                            style="background-image: url('assets/images/kome_can_scene_gift.png');">
+                        </div>
+                        <div class="kc-scene-card__overlay">
+                            <div class="kc-scene-card__en">GIFT</div>
+                            <div class="kc-scene-card__ja">大切な人に「安心」を贈る</div>
+                            <div class="kc-scene-card__desc">離れて暮らす家族や、お世話になった方へ。実用的で美味しいお守りとして。</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+
+        <!-- ⑤ Price & Lineup -->
+        <section class="section" id="pricing" style="background-color: #f4f5f7;">
+            <div class="container">
+                <div class="text-center">
+                    <span class="section__label">Lineup</span>
+                    <h2 class="section__title">価格・ラインナップ</h2>
+                    <p class="section__lead" style="margin-bottom: 30px;">用途に合わせて選べる3つのセットをご用意しました。</p>
+
+                    <!-- Base Price Indicator -->
+                    <div
+                        style="display: inline-block; background: #fff; padding: 15px 40px; border-radius: 50px; border: 2px solid var(--color-gold); margin-bottom: 40px; box-shadow: 0 4px 15px rgba(0,0,0,0.05);">
+                        <span
+                            style="font-size: 0.9rem; color: #1a2a44; font-weight: bold; margin-right: 15px; letter-spacing: 0.1em;">基本価格</span>
+                        <span
+                            style="font-family: var(--font-serif); font-size: 2rem; font-weight: bold; color: #1a2a44; line-height: 1;">1<span
+                                style="font-size: 1.1rem; margin: 0 5px;">缶</span>350<span
+                                style="font-size: 1.1rem; margin-left: 2px;">円</span></span>
+                        <span style="font-size: 0.85rem; color: #666; margin-left: 8px;">(税抜)</span>
+                    </div>
+                </div>
+
+                <div class="kc-pricing-grid">
+                    <!-- 6缶 -->
+                    <div class="kc-price-card">
+                        <h3 class="kc-price-card__title">6個セット</h3>
+                        <p class="kc-price-card__desc">お試しやちょっとした手土産に</p>
+                        <div class="kc-price-card__amount">3,480<span>円</span></div>
+                        <div class="kc-price-card__unit">(税込 / 送料込)</div>
+                        <a href="form.php?set=6" class="kc-price-card__btn">このセットを選択</a>
+                    </div>
+
+                    <!-- 12缶 -->
+                    <div class="kc-price-card kc-price-card--popular">
+                        <div class="kc-price-card__badge">一番人気！</div>
+                        <h3 class="kc-price-card__title">12個セット</h3>
+                        <p class="kc-price-card__desc">ご家庭での日常使いや少人数での備蓄に</p>
+                        <div class="kc-price-card__amount">5,980<span>円</span></div>
+                        <div class="kc-price-card__unit">(税込 / 送料込)</div>
+                        <a href="form.php?set=12" class="kc-price-card__btn">このセットを選択</a>
+                    </div>
+
+                    <!-- 24缶 -->
+                    <div class="kc-price-card">
+                        <h3 class="kc-price-card__title">24個セット</h3>
+                        <p class="kc-price-card__desc">家族用の一括備蓄や、一番お得なまとめ買いに</p>
+                        <div class="kc-price-card__amount">10,980<span>円</span></div>
+                        <div class="kc-price-card__unit">(税込 / 送料込)</div>
+                        <a href="form.php?set=24" class="kc-price-card__btn">このセットを選択</a>
+                    </div>
+                </div>
+
+                <p class="kc-price-note">
+                    ※北海道・沖縄県への配送は、追加送料として別途+800円を頂戴いたします。<br>
+                    ※法人様・大口注文をご希望の際は、別途お問い合わせください。
+                </p>
+            </div>
+        </section>
+
+        <!-- ⑥ LINE CTA (離脱防止・ナーチャリング) -->
+        <section class="kc-line-cta">
+            <div class="container">
+                <div class="kc-line-banner">
+                    <div class="kc-line-banner__content">
+                        <span class="kc-line-banner__label">Official LINE</span>
+                        <h3 class="kc-line-banner__title">十郷の最新情報を受け取る</h3>
+                        <p class="kc-line-banner__desc">
+                            「米缶」の美味しいアレンジレシピや、日常に役立つ防災知識、<br>
+                            そしてLINE限定のキャンペーン情報などを不定期でお届けします。<br>
+                            ぜひ、お気軽に友だち追加をお願いいたします。
+                        </p>
+                    </div>
+                    <div class="kc-line-banner__action">
+                        <a href="https://line.me/R/ti/p/@260pibea" target="_blank" rel="noopener" class="btn--line">
+                            LINE 友だち追加
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ⑦ CTA: Corporate focus -->
+        <div class="kc-cta">
+            <div class="container">
+                <span class="section__label">For Business</span>
+                <h2 class="section__title">法人・団体の大口注文をご検討の方へ</h2>
+                <p class="kc-cta__lead">
+                    備蓄用の大量購入、福利厚生やギフトでのご利用、販売代理店契約など、<br>
+                    法人・自治体様向けのカスタマイズやご相談も承っております。<br>
+                    お見積り・サンプル依頼など、専用フォームよりお気軽にお問い合わせください。
+                </p>
+                <div class="kc-cta-buttons">
+                    <a href="../contact.html" class="btn btn--outline kc-cta-btn--outline" style="border-width: 2px;">
+                        📋 法人・大口のお問い合わせはこちら
+                    </a>
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+    <!-- Footer (共通) -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer__inner">
+                <div class="footer__logo">
+                    <h2>一般社団法人 十郷</h2>
+                    <p>〒959-3252 新潟県岩船郡関川村大字高田81-2</p>
+                    <div class="footer__contact">
+                        <a href="tel:0254-75-5977" class="footer__tel">TEL: 0254-75-5977</a>
+                        <span class="footer__time">受付時間 10:00〜19:00（土日祝休）</span>
+                    </div>
+                </div>
+                <div class="footer__nav">
+                    <ul>
+                        <li><a href="../index.html">Top</a></li>
+                        <li><a href="../business.html">Business</a></li>
+                        <li><a href="../products.html">Products</a></li>
+                        <li><a href="../company.html">Company</a></li>
+                        <li><a href="../contact.html">Contact</a></li>
+                    </ul>
+                    <ul class="footer__legal">
+                        <li><a href="../privacy.html">プライバシーポリシー</a></li>
+                        <li><a href="../terms.html">利用規約</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer__copy">
+                &copy; 2026 一般社団法人 十郷 All Rights Reserved.
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+
+</html>
