@@ -1,0 +1,19 @@
+<IfModule mod_rewrite.c>
+RewriteEngine On
+RewriteBase /
+
+# 1. Force HTTPS and non-www (Normalize Domain)
+RewriteCond %{HTTPS} off [OR]
+RewriteCond %{HTTP_HOST} ^www\. [NC]
+RewriteRule ^(.*)$ https://jugo-japan.jp/$1 [L,R=301]
+
+# 2. Redirect Old Pages to New Relevant Content (SEO Redirection)
+# Agriculture (農業) -> Business Page #Agriculture section
+RewriteRule ^faculties/farm/?$ business.html#agriculture [L,R=301,NE]
+# In case it's faculties/agriculture or similar
+RewriteRule ^faculties/agriculture/?$ business.html#agriculture [L,R=301,NE]
+
+# 3. Handle General Not Found (Optional: Redirect common 404s to home)
+# ErrorDocument 404 /index.html
+
+</IfModule>
