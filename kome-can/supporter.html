@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>十郷サポーター制度 | 共に農と地域を守る仲間へ | 一般社団法人 十郷</title>
+    <meta name="description" content="米缶をご購入いただいた皆様へ。あなたの備えが、日本の田んぼを守る一歩になりました。公式LINEにご登録いただき「十郷サポーター」として共に未来を創りませんか。">
+    <link rel="canonical" href="https://jugo-japan.jp/kome-can/supporter.html">
+    <!-- Favicon -->
+    <link rel="icon" href="../assets/images/favicon.png" type="image/png">
+    <link rel="apple-touch-icon" href="../assets/images/favicon.png">
+    <!-- OGP -->
+    <meta property="og:title" content="十郷サポーター制度 | 共に農と地域を守る仲間へ">
+    <meta property="og:description" content="あなたの備えが、日本の田んぼを守る一歩になりました。十郷公式LINEに登録して、サポーターとして村の再生を見守ってください。">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://jugo-japan.jp/kome-can/supporter.html">
+    <meta property="og:image" content="https://jugo-japan.jp/assets/images/og-image-campaign.png">
+    <meta property="og:site_name" content="一般社団法人 十郷 (JUGO)">
+    <!-- CSS -->
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Shippori+Mincho:wght@500;700&display=swap"
+        rel="stylesheet">
+    <!-- GA -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-X987DFDHNH"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-X987DFDHNH');
+    </script>
+
+    <style>
+        /* ============================================================
+           Supporter Page Specific Styles
+           ============================================================ */
+
+        .cp-hero {
+            background-color: #1a2a44;
+            color: #fff;
+            padding: 160px 0 100px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cp-hero__bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('../assets/images/business_make.jpg');
+            background-size: cover;
+            background-position: center;
+            opacity: 0.35;
+            z-index: 1;
+        }
+
+        .cp-hero__content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .cp-hero__label {
+            display: inline-block;
+            color: var(--color-gold);
+            font-weight: 700;
+            letter-spacing: 0.2em;
+            margin-bottom: 20px;
+        }
+
+        .cp-hero__title {
+            font-family: var(--font-serif);
+            font-size: 3.5rem;
+            line-height: 1.4;
+            margin-bottom: 30px;
+        }
+
+        @media (max-width: 768px) {
+            .cp-hero__title {
+                font-size: 2rem;
+            }
+        }
+
+        /* Contribution Section */
+        .cp-impact {
+            padding: 80px 0;
+            background: #fff;
+        }
+
+        .cp-impact-box {
+            background: #fdfdfc;
+            border: 1px solid #eee;
+            border-radius: 20px;
+            padding: 60px;
+            display: flex;
+            align-items: center;
+            gap: 50px;
+            box-shadow: 0 15px 45px rgba(0, 0, 0, 0.03);
+        }
+
+        @media (max-width: 900px) {
+            .cp-impact-box {
+                flex-direction: column;
+                padding: 40px 24px;
+                text-align: center;
+            }
+        }
+
+        .cp-impact__visual {
+            flex: 1;
+            font-family: var(--font-serif);
+            color: var(--color-gold);
+        }
+
+        .cp-impact__area {
+            font-size: 5rem;
+            font-weight: 700;
+            line-height: 1;
+        }
+
+        .cp-impact__unit {
+            font-size: 1.5rem;
+            margin-left: 10px;
+        }
+
+        .cp-impact__text {
+            flex: 1.5;
+        }
+
+        .cp-impact__text h3 {
+            font-family: var(--font-serif);
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            color: var(--color-primary);
+        }
+
+        .cp-impact__text p {
+            line-height: 2;
+            color: #555;
+        }
+
+        /* Factory Project */
+        .cp-factory {
+            background: var(--color-primary);
+            color: #fff;
+            padding: 100px 0;
+            position: relative;
+        }
+
+        .cp-factory__inner {
+            display: flex;
+            align-items: center;
+            gap: 60px;
+        }
+
+        @media (max-width: 900px) {
+            .cp-factory__inner {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+
+        .cp-factory__img {
+            flex: 1;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        .cp-factory__img img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .cp-factory__content {
+            flex: 1.2;
+        }
+
+        .cp-factory__label {
+            color: var(--color-gold);
+            font-weight: bold;
+            letter-spacing: 0.1em;
+            display: block;
+            margin-bottom: 15px;
+        }
+
+        .cp-factory__title {
+            font-family: var(--font-serif);
+            font-size: 2.2rem;
+            margin-bottom: 25px;
+            line-height: 1.4;
+        }
+
+        .cp-factory__text {
+            font-size: 1.05rem;
+            line-height: 1.9;
+            opacity: 0.9;
+            margin-bottom: 30px;
+        }
+
+        /* Supporter Registration Steps */
+        .cp-step-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            margin-top: 60px;
+        }
+
+        @media (max-width: 768px) {
+            .cp-step-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .cp-step-card {
+            background: #fff;
+            padding: 40px;
+            border-radius: 16px;
+            box-shadow: 0 5px 25px rgba(0, 0, 0, 0.05);
+            text-align: center;
+        }
+
+        .cp-step__num {
+            width: 50px;
+            height: 50px;
+            background: var(--color-gold);
+            color: #fff;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            margin: 0 auto 20px;
+        }
+
+        .cp-line-box {
+            background: #f5fff9;
+            border: 2px dashed #06C755;
+            border-radius: 12px;
+            padding: 40px 30px;
+            margin-top: 40px;
+            text-align: center;
+        }
+
+        .cp-line-qr {
+            width: 150px;
+            height: 150px;
+            background: #eee;
+            margin: 0 auto 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* Message */
+        .cp-message {
+            padding: 100px 0;
+            background-image: linear-gradient(rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.9)), url('../assets/images/nakai.jpg');
+            background-size: cover;
+            background-position: center;
+            text-align: center;
+        }
+
+        .cp-message__text {
+            font-family: var(--font-serif);
+            font-size: 1.5rem;
+            line-height: 2.2;
+            color: var(--color-primary);
+            max-width: 800px;
+            margin: 0 auto 40px;
+        }
+
+        @media (max-width: 768px) {
+            .cp-message__text {
+                font-size: 1.1rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Header -->
+    <header class="header">
+        <div class="header__inner">
+            <h1 class="header__logo">
+                <a href="../index.html">
+                    <img src="../assets/images/logo_lg.png" alt="JUGO">
+                    <span class="header__logo-text">一般社団法人 十郷</span>
+                </a>
+            </h1>
+            <nav class="header__nav">
+                <ul>
+                    <li><a href="../business.html">Business</a></li>
+                    <li><a href="../products.html" class="active">Products</a></li>
+                    <li><a href="../company.html">Company</a></li>
+                    <li><a href="../contact.html" class="btn btn--nav">Contact</a></li>
+                </ul>
+            </nav>
+            <button class="header__menu-trigger"><span></span><span></span><span></span></button>
+        </div>
+    </header>
+
+    <main>
+
+        <!-- Hero -->
+        <section class="cp-hero">
+            <div class="cp-hero__bg"></div>
+            <div class="container cp-hero__content">
+                <span class="cp-hero__label">JUGO SUPPORTER</span>
+                <h1 class="cp-hero__title">
+                    「食べる」を越えて、<br>
+                    共に農と地域の未来を創る。
+                </h1>
+                <p>米缶を手にしてくださったあなたは、すでに私たちの活動を支える大切な「パートナー」です。<br>
+                    私たちは、単なる作り手と買い手の関係を越え、関川村の風景を守り、新しい工場を建て、<br>
+                    誇れる未来を共につくる「家族」のような繋がりを目指しています。<br>
+                    あなたの備えが、この土地の希望に変わる。その物語の続きを、一番近くで見守っていただけませんか。
+                </p>
+            </div>
+        </section>
+
+        <!-- Impact Visual -->
+        <section class="cp-impact">
+            <div class="container text-center">
+                <span class="section__label">Your Contribution</span>
+                <div class="cp-impact-box">
+                    <div class="cp-impact__visual">
+                        <span class="cp-impact__area">0.5</span>
+                        <span class="cp-impact__unit">m²</span>
+                        <p style="font-size: 1rem; color: #666; margin-top: 10px;">（米缶1缶で守られる面積の目安）</p>
+                    </div>
+                    <div class="cp-impact__text">
+                        <h3>一缶から始まる、土地の再生。</h3>
+                        <p>
+                            皆様からお預かりした売上の一部は、新潟県関川村の「耕作放棄地」を再生し、再び美しい田んぼへと戻すための活動資金として活用されます。<br>
+                            今回のあなたの「備え」は、そのまま「地域の未来」を創るための力強いサポートとなりました。
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Factory Announcement -->
+        <section class="cp-factory">
+            <div class="container">
+                <div class="cp-factory__inner">
+                    <div class="cp-factory__img">
+                        <img src="assets/images/kome_can_final.jpg" alt="米缶 KOME CAN">
+                    </div>
+                    <div class="cp-factory__content">
+                        <span class="cp-factory__label">OUR FUTURE</span>
+                        <h2 class="cp-factory__title">サポーターと共に創る、<br>「米缶専用工場」</h2>
+                        <p class="cp-factory__text">
+                            現在、米缶は協力工場で製造していますが、私たちは関川村の中に、雇用を生み出し、新しい文化を発信する「自社拠点」としての工場建設を進めています。<br>
+                            今回の購入は、このプロジェクトの大きな一助となりました。ぜひ、長く続くこの歩みを、これからも側で見守っていただけると嬉しいです。
+                        </p>
+                        <p style="font-weight: bold; color: var(--color-gold);">
+                            「自分の買った米缶が、あの工場のレンガ一枚になった」<br>
+                            そう誇らしく実感していただける場所を、一緒に創りましょう。
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Supporter Registration -->
+        <section class="section">
+            <div class="container">
+                <div class="text-center">
+                    <span class="section__label">Join Us</span>
+                    <h2 class="section__title">サポーター登録と、ささやかな御礼。</h2>
+                    <p class="section__lead">
+                        公式LINEでは、あなたが守った田んぼの風景や、工場の進捗を定期的にお届けします。<br>
+                        長く深く、村の未来を見守ってください。
+                    </p>
+                </div>
+
+                <div class="cp-step-grid">
+                    <div class="cp-step-card">
+                        <div class="cp-step__num">01</div>
+                        <h3>公式LINEでサポーター登録</h3>
+                        <p>下のボタンから、十郷の公式LINEを友だち追加してください。これでサポーター登録は完了です。活動の最前線をお届けします。</p>
+                    </div>
+                    <div class="cp-step-card">
+                        <div class="cp-step__num">02</div>
+                        <h3>米缶の感想をシェアする</h3>
+                        <p>米缶を楽しんでいる食卓のお写真やご感想をLINEでお送りください。共に歩む「初期サポーター（先着100名様）」へ、感謝のコシヒカリ1合をお贈りします。</p>
+                    </div>
+                </div>
+
+                <div class="cp-line-box">
+                    <span
+                        style="color: #06C755; font-weight: bold; margin-bottom: 20px; display: block; font-size: 1.2rem;">▼
+                        十郷サポーターに登録して、村の未来を一緒に見守る ▼</span>
+                    <a href="https://line.me/R/ti/p/@260pibea" target="_blank" rel="noopener"
+                        class="btn--line">十郷サポーターに登録する（LINEを開く）</a>
+                    <p style="font-size: 0.85rem; color: #666; margin-top: 20px; line-height: 1.8;">
+                        ※本企画は「米缶をご購入いただいた方」限定の登録プログラムです。<br>
+                        ※お写真や感想をシェアしていただいた初期サポーター（先着100名様）へ、感謝のコシヒカリ一合をお送りいたします。<br>
+                        ※プレゼントのみを目的とせず、長く工場の行方や村の再生を見守っていただける方のご参加を心よりお待ちしております。
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Closing Message -->
+        <section class="cp-message">
+            <div class="container">
+                <p class="cp-message__text">
+                    「お腹いっぱいになる幸せ」を、<br>
+                    次の世代へ、そして有事の現場へ。<br>
+                    あなたという力強いサポーターと共に。<br>
+                </p>
+                <div style="margin-top: 20px;">
+                    <p style="font-size: 1.1rem; font-weight: bold;">一般社団法人 十郷</p>
+                    <p style="font-size: 0.9rem;">代表理事　中井 達朗</p>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer__inner">
+                <div class="footer__logo">
+                    <h2>一般社団法人 十郷</h2>
+                    <p>〒959-3252 新潟県岩船郡関川村大字高田81-2</p>
+                    <div class="footer__contact">
+                        <a href="tel:0254-75-5977" class="footer__tel">TEL: 0254-75-5977</a>
+                        <span class="footer__time">受付時間 10:00〜19:00（土日祝休）</span>
+                    </div>
+                </div>
+                <div class="footer__nav">
+                    <ul>
+                        <li><a href="../index.html">Top</a></li>
+                        <li><a href="../business.html">Business</a></li>
+                        <li><a href="../products.html">Products</a></li>
+                        <li><a href="../company.html">Company</a></li>
+                        <li><a href="../contact.html">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer__copy">
+                &copy; 2026 一般社団法人 十郷 All Rights Reserved.
+            </div>
+        </div>
+    </footer>
+
+    <script src="../js/main.js"></script>
+</body>
+
+</html>
