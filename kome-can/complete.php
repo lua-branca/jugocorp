@@ -64,10 +64,13 @@ $headers .= "Reply-To: " . $sender_email . "\n";
 $return_path = "-f " . $sender_email;
 
 // お客様への自動返信メール
-$user_subject = "【十郷(JUGO)】米缶のご注文を受け付けました（決済のお願い）";
+$user_subject = "【十郷(JUGO)】米缶のご注文（仮予約）を承りました";
 $user_body = $post_data['name'] . " 様\n\n";
 $user_body .= "この度は「十郷米缶」をお申し込みいただき、誠にありがとうございます。\n";
-$user_body .= "以下のURLより、クレジットカードでの決済（お支払い）をお願いいたします。\n\n";
+$user_body .= "本メールは、お申し込み内容の確認のため自動送信しております。\n\n";
+$user_body .= "【重要：お支払いについて】\n";
+$user_body .= "お申し込み完了画面から既に決済（お支払い）を完了された方は、本メールでの再度の操作は不要です。そのまま商品の到着をお待ちください。\n\n";
+$user_body .= "画面を閉じてしまった等、まだ決済がお済みでない方は、恐れ入りますが以下のURLよりお手続きをお願いいたします。決済の完了をもって、正式なご注文確定とさせていただきます。\n\n";
 $user_body .= "▼決済用URL（Stripe）\n";
 $user_body .= $payment_url . "\n\n";
 $user_body .= "※3月11日は「予約受付開始」となります。商品の発送は【2026年4月以降】を順次予定しております。お届けまでにお時間を頂戴いたしますが、楽しみにお待ちいただけますと幸いです。\n\n";
@@ -77,7 +80,8 @@ $user_body .= "■お名前：" . $post_data['name'] . "\n";
 $user_body .= "■ご住所：〒" . $post_data['zip'] . " " . $post_data['pref'] . $post_data['address_line1'] . " " . $post_data['address_line2'] . "\n";
 $user_body .= "■ご注文セット：" . $set_label . "\n";
 $user_body .= "--------------------------------------------------\n\n";
-$user_body .= "--\n一般社団法人 十郷 (JUGO)\nURL: https://jugo-japan.jp\n";
+$user_body .= "本件に関するご不明な点や、お届け先の変更希望などがございましたら、下記メールアドレスまでお問い合わせください。\n\n";
+$user_body .= "--\n一般社団法人 十郷 (JUGO)\nEmail: contact@jugo-japan.jp\nURL: https://jugo-japan.jp\n";
 
 @mb_send_mail($post_data['email'], $user_subject, $user_body, $headers, $return_path);
 
