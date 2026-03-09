@@ -205,57 +205,71 @@
         }
 
         /* Supporter Registration Steps */
-        .cp-step-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 40px;
-            margin-top: 60px;
+        .cp-steps {
+            background: #f9f8f6;
+            padding: 100px 0;
         }
 
-        @media (max-width: 768px) {
-            .cp-step-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        .cp-step-card {
-            background: #fff;
-            padding: 40px;
-            border-radius: 16px;
-            box-shadow: 0 5px 25px rgba(0, 0, 0, 0.05);
+        .cp-register-area {
+            max-width: 800px;
+            margin: 0 auto;
             text-align: center;
-        }
-
-        .cp-step__num {
-            width: 50px;
-            height: 50px;
-            background: var(--color-gold);
-            color: #fff;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: 700;
-            margin: 0 auto 20px;
         }
 
         .cp-line-box {
-            background: #f5fff9;
-            border: 2px dashed #06C755;
-            border-radius: 12px;
+            background: #fff;
+            border: 2px solid #06C755;
+            border-radius: 16px;
             padding: 40px 30px;
             margin-top: 40px;
             text-align: center;
+            box-shadow: 0 10px 30px rgba(6, 199, 85, 0.08);
         }
 
-        .cp-line-qr {
-            width: 150px;
-            height: 150px;
-            background: #eee;
-            margin: 0 auto 20px;
+        .cp-line-box h3 {
+            color: #06C755;
+            font-size: 1.25rem;
+            margin-bottom: 25px;
+            font-weight: bold;
+        }
+
+        /* Campaign Box */
+        .cp-campaign-box {
+            margin-top: 60px;
+            background: #fff9f0;
+            border: 1px solid #f9dab3;
+            border-radius: 16px;
+            padding: 40px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cp-campaign__title {
+            color: #d37b00;
+            font-size: 1.4rem;
+            font-weight: bold;
+            margin-bottom: 20px;
             display: flex;
             align-items: center;
             justify-content: center;
+            gap: 10px;
+        }
+
+        .cp-campaign__text {
+            font-size: 0.95rem;
+            line-height: 1.8;
+            color: #5d4a35;
+            margin-bottom: 0;
+        }
+
+        .cp-campaign__limit {
+            display: inline-block;
+            background: #d37b00;
+            color: #fff;
+            font-size: 0.8rem;
+            padding: 2px 12px;
+            border-radius: 4px;
+            margin-bottom: 10px;
         }
 
         /* Message */
@@ -352,7 +366,7 @@
             <div class="container">
                 <div class="cp-factory__inner">
                     <div class="cp-factory__img">
-                        <img src="assets/images/kome_can_final.jpg" alt="米缶 KOME CAN">
+                        <img src="assets/images/kome_can_closed_dark.png" alt="米缶 KOME CAN">
                     </div>
                     <div class="cp-factory__content">
                         <span class="cp-factory__label">OUR FUTURE</span>
@@ -371,41 +385,35 @@
         </section>
 
         <!-- Supporter Registration -->
-        <section class="section">
+        <section class="cp-steps">
             <div class="container">
                 <div class="text-center">
                     <span class="section__label">Join Us</span>
-                    <h2 class="section__title">サポーター登録と、ささやかな御礼。</h2>
-                    <p class="section__lead">
-                        公式LINEでは、あなたが守った田んぼの風景や、工場の進捗を定期的にお届けします。<br>
-                        長く深く、村の未来を見守ってください。
-                    </p>
+                    <h2 class="section__title">十郷サポーターになる</h2>
+                    <p class="section__lead">公式LINEの友だち追加だけで、登録は完了です。<br>私たちの活動を一番近くで見守ってください。</p>
                 </div>
 
-                <div class="cp-step-grid">
-                    <div class="cp-step-card">
-                        <div class="cp-step__num">01</div>
-                        <h3>公式LINEでサポーター登録</h3>
-                        <p>下のボタンから、十郷の公式LINEを友だち追加してください。これでサポーター登録は完了です。活動の最前線をお届けします。</p>
+                <div class="cp-register-area">
+                    <div class="cp-line-box">
+                        <h3>▼ 十郷サポーターに登録する ▼</h3>
+                        <a href="https://line.me/R/ti/p/@260pibea" target="_blank" rel="noopener"
+                            class="btn--line">LINEで友だち追加する</a>
+                        <p style="font-size: 0.85rem; color: #666; margin-top: 20px;">※LINE追加のみでサポーター登録となります。</p>
                     </div>
-                    <div class="cp-step-card">
-                        <div class="cp-step__num">02</div>
-                        <h3>米缶の感想をシェアする</h3>
-                        <p>米缶を楽しんでいる食卓のお写真やご感想をLINEでお送りください。共に歩む「初期サポーター（先着100名様）」へ、感謝のコシヒカリ1合をお贈りします。</p>
-                    </div>
-                </div>
 
-                <div class="cp-line-box">
-                    <span
-                        style="color: #06C755; font-weight: bold; margin-bottom: 20px; display: block; font-size: 1.2rem;">▼
-                        十郷サポーターに登録して、村の未来を一緒に見守る ▼</span>
-                    <a href="https://line.me/R/ti/p/@260pibea" target="_blank" rel="noopener"
-                        class="btn--line">十郷サポーターに登録する（LINEを開く）</a>
-                    <p style="font-size: 0.85rem; color: #666; margin-top: 20px; line-height: 1.8;">
-                        ※本企画は「米缶をご購入いただいた方」限定の登録プログラムです。<br>
-                        ※お写真や感想をシェアしていただいた初期サポーター（先着100名様）へ、感謝のコシヒカリ一合をお送りいたします。<br>
-                        ※プレゼントのみを目的とせず、長く工場の行方や村の再生を見守っていただける方のご参加を心よりお待ちしております。
-                    </p>
+                    <!-- Campaign Section -->
+                    <div class="cp-campaign-box">
+                        <div class="text-center">
+                            <span class="cp-campaign__limit">限定100名様・なくなり次第終了</span>
+                            <h3 class="cp-campaign__title">✨ 米缶リリースキャンペーン実施中</h3>
+                            <p class="cp-campaign__text">
+                                サポーター登録後、LINEにて「米缶」を召し上がった際のご感想や食卓のお写真をシェアしていただいた方へ。<br>
+                                十郷から感謝を込めて、<strong>「新潟県産コシヒカリ（一合）」</strong>をプレゼントいたします。<br>
+                                <span
+                                    style="font-size: 0.85rem; opacity: 0.8;">※先着100名様限定となります。上限に達し次第、本キャンペーンは終了となりますのでご了承ください。</span>
+                            </p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
