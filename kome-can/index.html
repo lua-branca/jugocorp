@@ -112,14 +112,42 @@
 
         .kc-hero__launch-badge {
             display: inline-block;
-            background-color: var(--color-gold);
+            background-color: #000;
             color: #fff;
-            font-size: 0.85rem;
+            border: 2px solid #e50012;
+            font-family: var(--font-serif);
+            font-size: 1.2rem;
             font-weight: 700;
-            letter-spacing: 0.15em;
-            padding: 12px 30px;
-            border-radius: 50px;
+            letter-spacing: -0.02em;
+            padding: 8px 40px;
+            border-radius: 0;
             margin-bottom: 50px;
+            box-shadow: 0 0 20px rgba(229, 0, 18, 0.3);
+            position: relative;
+            text-shadow: 0 0 5px rgba(255, 255, 255, 0.2);
+        }
+
+        .kc-hero__launch-badge::before,
+        .kc-hero__launch-badge::after {
+            content: "";
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            border: 2px solid #e50012;
+        }
+
+        .kc-hero__launch-badge::before {
+            top: -6px;
+            left: -6px;
+            border-right: none;
+            border-bottom: none;
+        }
+
+        .kc-hero__launch-badge::after {
+            bottom: -6px;
+            right: -6px;
+            border-left: none;
+            border-top: none;
         }
 
         .kc-hero__title {
@@ -682,9 +710,9 @@
             <img src="assets/images/kome_can_final.jpg" alt="" class="kc-hero__bg-img">
             <div class="kc-hero__content">
                 <div class="kc-hero__text">
-                    <span class="kc-hero__launch-badge">🎉 2026年3月11日 予約受付スタート</span>
+                    <span class="kc-hero__launch-badge">2026年3月11日 予約受付スタート</span>
                     <p class="kc-hero__title">水・火・電気不要。<br>
-                    開けてすぐ食べられるお米。</p>
+                        開けてすぐ食べられるお米。</p>
                     <p class="kc-hero__sub">
                         フタを開けるだけ。<br>
                         日常と「もしも」をつなぐ備蓄ごはん。
@@ -713,21 +741,21 @@
                         <div class="kc-zero-card__label-ja">準備ゼロ</div>
                         <p>水も、電気も、ガスもすべて不要。<br>
                             災害でライフラインが止まっても、
-                        プルトップを開けるだけで食べられます。</p>
+                            プルトップを開けるだけで食べられます。</p>
                     </div>
                     <div class="kc-zero-card">
                         <div class="kc-zero-card__num">02</div>
                         <div class="kc-zero-card__label-en">WAITING</div>
                         <div class="kc-zero-card__label-ja">待ち時間ゼロ</div>
                         <p>お湯を沸かす必要も、<br>温める必要もありません。<br>
-                        開けてすぐ食べられる備蓄ごはんです。</p>
+                            開けてすぐ食べられる備蓄ごはんです。</p>
                     </div>
                     <div class="kc-zero-card">
                         <div class="kc-zero-card__num">03</div>
                         <div class="kc-zero-card__label-en">GUILT</div>
                         <div class="kc-zero-card__label-ja">妥協ゼロ</div>
                         <p>無添加・保存料不使用。<br>「非常食だから仕方ない」という
-                        妥協は一切ありません。</p>
+                            妥協は一切ありません。</p>
                     </div>
                 </div>
             </div>
@@ -746,7 +774,7 @@
                         <h3>お米の美味しさにこだわった備蓄食</h3>
                         <p>「非常食は我慢して食べるもの」そんな常識を変えるために生まれました。
                             国産米を使用し、ふっくらとした食感とお米本来の甘みを
-                        引き出す製法にこだわっています。</p>
+                            引き出す製法にこだわっています。</p>
                         <ul>
                             <li><strong>国産米使用</strong></li>
                             <li><strong>食品添加物・保存料不使用</strong></li>
