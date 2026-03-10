@@ -98,7 +98,13 @@ $item_set_labels = [
 <body>
     <div class="form-container">
         <h2>お申し込み内容の確認</h2>
-        <p>以下の内容でよろしければ、「決済へ進む」ボタンを押してください。<br>※次ページでクレジットカード決済用のリンクをご案内します。</p>
+        <p>以下の内容でよろしければ、ボタンを押してください。<br>
+        <?php if ($post_data['payment_method'] === 'bank'): ?>
+            ※次ページで振込先口座をご案内します。
+        <?php else: ?>
+            ※次ページでクレジットカード決済用のリンクをご案内します。
+        <?php endif; ?>
+        </p>
 
         <table>
             <tr><th>お名前</th><td><?php echo $post_data['name']; ?></td></tr>
@@ -109,6 +115,7 @@ $item_set_labels = [
                 <?php echo $post_data['pref'] . $post_data['address_line1'] . '<br>' . $post_data['address_line2']; ?>
             </td></tr>
             <tr><th>購入セット</th><td><?php echo isset($item_set_labels[$post_data['item_set']]) ? $item_set_labels[$post_data['item_set']] : $post_data['item_set'] . '個セット'; ?></td></tr>
+            <tr><th>お支払い方法</th><td><?php echo ($post_data['payment_method'] === 'bank') ? '銀行振込' : 'クレジットカード決済'; ?></td></tr>
             <tr><th>送料について</th><td style="color: <?php echo $additional_shipping ? 'red' : 'green'; ?>; font-weight: bold;"><?php echo $shipping_message; ?></td></tr>
             <tr><th>備考</th><td><?php echo nl2br($post_data['remarks']); ?></td></tr>
         </table>
@@ -117,7 +124,9 @@ $item_set_labels = [
             <input type="hidden" name="csrf_token" value="<?php echo $csrf_token; ?>">
             <div class="btn-group">
                 <a href="form.php" class="back-btn">修正する</a>
-                <button type="submit" class="submit-btn" id="submitBtn">決済画面へ進む</button>
+                <button type="submit" class="submit-btn" id="submitBtn">
+                    <?php echo ($post_data['payment_method'] === 'bank') ? '注文を確定する' : '決済画面へ進む'; ?>
+                </button>
             </div>
         </form>
         <script>

@@ -37,8 +37,12 @@ $item_set_labels = [
 ];
 $set_label = isset($item_set_labels[$set_size]) ? $item_set_labels[$set_size] : $set_size . '個セット';
 
+$payment_method = $post_data['payment_method']; // credit or bank
+$payment_label = ($payment_method === 'bank') ? '銀行振込' : 'クレジットカード決済';
+
 $post_data_for_gas = $post_data;
 $post_data_for_gas['item_set'] = $set_label;
+$post_data_for_gas['payment_method'] = $payment_label;
 
 // GASへのデータ送信処理 (cURL)
 // ※GASのURLはセキュリティ上必ず302リダイレクトされるため、CURLOPT_FOLLOWLOCATIONが必須です
@@ -68,17 +72,30 @@ $user_subject = "【十郷(JUGO)】米缶のご注文（仮予約）を承りま
 $user_body = $post_data['name'] . " 様\n\n";
 $user_body .= "この度は「十郷米缶」をお申し込みいただき、誠にありがとうございます。\n";
 $user_body .= "本メールは、お申し込み内容の確認のため自動送信しております。\n\n";
-$user_body .= "【重要：お支払いについて】\n";
-$user_body .= "お申し込み完了画面から既に決済（お支払い）を完了された方は、本メールでの再度の操作は不要です。そのまま商品の到着をお待ちください。\n\n";
-$user_body .= "画面を閉じてしまった等、まだ決済がお済みでない方は、恐れ入りますが以下のURLよりお手続きをお願いいたします。決済の完了をもって、正式なご注文確定とさせていただきます。\n\n";
-$user_body .= "▼決済用URL（Stripe）\n";
-$user_body .= $payment_url . "\n\n";
+
+if ($payment_method === 'bank') {
+    $user_body .= "【重要：お振込みのお願い】\n";
+    $user_body .= "以下の口座へ、合計金額のお振込みをお願いいたします。ご入金の確認をもって、正式なご注文確定とさせていただきます。\n\n";
+    $user_body .= "▼お振込先\n";
+    $user_body .= "三菱UFJ銀行 新潟支店\n";
+    $user_body .= "店番：731 普通 0775865\n";
+    $user_body .= "シヤ）ジユウゴウ\n\n";
+    $user_body .= "※お振込手数料はお客様にてご負担をお願いいたします。\n";
+} else {
+    $user_body .= "【重要：お支払いについて】\n";
+    $user_body .= "お申し込み完了画面から既に決済（お支払い）を完了された方は、本メールでの再度の操作は不要です。そのまま商品の到着をお待ちください。\n\n";
+    $user_body .= "画面を閉じてしまった等、まだ決済がお済みでない方は、恐れ入りますが以下のURLよりお手続きをお願いいたします。決済の完了をもって、正式なご注文確定とさせていただきます。\n\n";
+    $user_body .= "▼決済用URL（Stripe）\n";
+    $user_body .= $payment_url . "\n\n";
+    $user_body .= "※決済が完了した時点で、ご注文の確定となります。\n";
+}
+
 $user_body .= "※3月11日は「予約受付開始」となります。商品の発送は【2026年4月以降】を順次予定しております。お届けまでにお時間を頂戴いたしますが、楽しみにお待ちいただけますと幸いです。\n\n";
-$user_body .= "※決済が完了した時点で、ご注文の確定となります。\n";
 $user_body .= "--------------------------------------------------\n";
 $user_body .= "■お名前：" . $post_data['name'] . "\n";
 $user_body .= "■ご住所：〒" . $post_data['zip'] . " " . $post_data['pref'] . $post_data['address_line1'] . " " . $post_data['address_line2'] . "\n";
 $user_body .= "■ご注文セット：" . $set_label . "\n";
+$user_body .= "■お支払い方法：" . $payment_label . "\n";
 $user_body .= "--------------------------------------------------\n\n";
 $user_body .= "本件に関するご不明な点や、お届け先の変更希望などがございましたら、下記メールアドレスまでお問い合わせください。\n\n";
 $user_body .= "--\n一般社団法人 十郷 (JUGO)\nEmail: contact@jugo-japan.jp\nURL: https://jugo-japan.jp\n";
@@ -95,8 +112,15 @@ $admin_body .= "■メール：" . $post_data['email'] . "\n";
 $admin_body .= "■電話番号：" . $post_data['phone'] . "\n";
 $admin_body .= "■ご住所：〒" . $post_data['zip'] . " " . $post_data['pref'] . $post_data['address_line1'] . " " . $post_data['address_line2'] . "\n";
 $admin_body .= "■セット：" . $set_label . "\n";
+$admin_body .= "■お支払い方法：" . $payment_label . "\n";
 $admin_body .= "■備考：" . $post_data['remarks'] . "\n";
-$admin_body .= "\n※現在は「未決済」状態です。Stripe決済完了後にGASが自動で処理します。\n\n";
+$admin_body .= "\n※現在は「未決済」状態です。";
+if ($payment_method === 'credit') {
+    $admin_body .= "Stripe決済完了後にGASが自動で処理します。";
+} else {
+    $admin_body .= "銀行振込を確認後、手動でステータスを更新してください。";
+}
+$admin_body .= "\n\n";
 $admin_body .= "▼最新の注文状況（スプレッドシート）はこちらから確認できます：\n";
 $admin_body .= "https://docs.google.com/spreadsheets/d/1L6a4ltEyOR3Wa26JlzdUDpnISLrq-UQqoJDsOuZMP6I/edit?gid=0#gid=0\n";
 
@@ -129,8 +153,10 @@ session_destroy();
             'event_label': 'Purchase_Complete'
         });
     </script>
-    <!-- 決済ページへ自動リダイレクトさせる設定 -->
+    <!-- 決済ページへ自動リダイレクトさせる設定 (クレジットカード決済のみ) -->
+    <?php if ($payment_method === 'credit'): ?>
     <meta http-equiv="refresh" content="5;url=<?php echo $payment_url; ?>">
+    <?php endif; ?>
     <link rel="stylesheet" href="css/style.css">
     <style>
         body { background-color: #f9f9f9; }
@@ -147,20 +173,41 @@ session_destroy();
 </head>
 <body>
     <div class="form-container">
-        <h2>ご注文（仮予約）を<br>受け付けました</h2>
-        <p>ご入力いただいたメールアドレス宛に<br>お申し込み控えを自動送信しました。</p>
-        <p style="background: #fff9f0; color: #d37b00; padding: 15px; border-radius: 8px; font-weight: bold; font-size: 0.9rem;">
-            ※商品の発送は【2026年4月以降】を予定しております。
-        </p>
-        <hr>
-        <h3>続いて、クレジットカード決済にお進みください。</h3>
-        <p style="font-size: 0.9em; color: #e50012;">※決済が完了した時点で、ご注文の確定となります。</p>
-        
-        <div class="spinner"></div>
-        <p>5秒後に自動的に決済画面（Stripe）へ移動します。</p>
-        
-        <p>自動で移動しない場合は、下のボタンを押してください。</p>
-        <a href="<?php echo $payment_url; ?>" class="payment-btn">クレジットカード決済画面へ</a>
+        <?php if ($payment_method === 'bank'): ?>
+            <h2>ご注文をお受けいたしました</h2>
+            <p>ご入力いただいたメールアドレス宛に<br>お申し込み控えを自動送信しました。</p>
+            <p style="background: #fff9f0; color: #d37b00; padding: 15px; border-radius: 8px; font-weight: bold; font-size: 0.9rem;">
+                ※商品の発送は【2026年4月以降】を予定しております。
+            </p>
+            <hr>
+            <h3>続いて、下記口座へのお振込みをお願いいたします。</h3>
+            <div style="background: #fdfcf9; border: 1px solid #ddd; padding: 20px; border-radius: 8px; text-align: left; margin: 20px 0;">
+                <p style="margin: 0; font-size: 1.1rem; color: #1a2a44;">
+                    <strong>三菱UFJ銀行 新潟支店</strong><br>
+                    店番：731 普通 0775865<br>
+                    シヤ）ジユウゴウ
+                </p>
+                <p style="margin: 10px 0 0; font-size: 0.85rem; color: #e50012;">
+                    ※ご入金確認をもって、正式なご注文確定とさせていただきます。
+                </p>
+            </div>
+            <a href="index.html" class="payment-btn">トップページへ戻る</a>
+        <?php else: ?>
+            <h2>ご注文（仮予約）を<br>受け付けました</h2>
+            <p>ご入力いただいたメールアドレス宛に<br>お申し込み控えを自動送信しました。</p>
+            <p style="background: #fff9f0; color: #d37b00; padding: 15px; border-radius: 8px; font-weight: bold; font-size: 0.9rem;">
+                ※商品の発送は【2026年4月以降】を予定しております。
+            </p>
+            <hr>
+            <h3>続いて、クレジットカード決済にお進みください。</h3>
+            <p style="font-size: 0.9em; color: #e50012;">※決済が完了した時点で、ご注文の確定となります。</p>
+            
+            <div class="spinner"></div>
+            <p>5秒後に自動的に決済画面（Stripe）へ移動します。</p>
+            
+            <p>自動で移動しない場合は、下のボタンを押してください。</p>
+            <a href="<?php echo $payment_url; ?>" class="payment-btn">クレジットカード決済画面へ</a>
+        <?php endif; ?>
     </div>
 </body>
 </html>
