@@ -404,6 +404,19 @@ ul {
     line-height: 1.4;
     margin-bottom: 40px;
     color: var(--color-primary);
+    text-wrap: balance;
+    /* Modern browsers: balances line lengths */
+}
+
+/* Utility for responsive line breaks */
+.pc-br {
+    display: inline;
+}
+
+@media (max-width: 768px) {
+    .pc-br {
+        display: none;
+    }
 }
 
 .section__title--sm {
@@ -1530,7 +1543,13 @@ a.sns-icon:not([href]) {
     }
 
     .hero__copy-main {
-        font-size: 2.5rem;
+        font-size: 2.22rem;
+        text-wrap: balance;
+    }
+
+    .section__title {
+        font-size: 1.85rem;
+        line-height: 1.35;
     }
 
     .updates__grid {
