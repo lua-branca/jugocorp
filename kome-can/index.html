@@ -675,6 +675,76 @@
             transform: translateY(-2px);
             box-shadow: 0 4px 15px rgba(6, 199, 85, 0.3);
         }
+
+        /* Product Spec Section */
+        .kc-spec-layout {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            margin-top: 50px;
+            align-items: start;
+        }
+
+        @media (max-width: 768px) {
+            .kc-spec-layout {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+        }
+
+        .kc-how-to-eat h3 {
+            font-family: var(--font-serif);
+            font-size: 1.6rem;
+            color: var(--color-primary);
+            margin-bottom: 20px;
+            position: relative;
+            padding-bottom: 15px;
+        }
+
+        .kc-how-to-eat h3::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 40px;
+            height: 2px;
+            background: var(--color-gold);
+        }
+
+        .kc-how-to-eat p {
+            line-height: 2;
+            color: #555;
+            font-size: 1rem;
+        }
+
+        .kc-spec-table-wrap {
+            background: #fff;
+        }
+
+        .kc-spec-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .kc-spec-table th,
+        .kc-spec-table td {
+            padding: 18px 0;
+            border-bottom: 1px solid #eee;
+            font-size: 0.95rem;
+            text-align: left;
+        }
+
+        .kc-spec-table th {
+            width: 120px;
+            color: #888;
+            font-weight: 500;
+            vertical-align: top;
+        }
+
+        .kc-spec-table td {
+            color: #333;
+            line-height: 1.6;
+        }
     </style>
 </head>
 
@@ -896,6 +966,59 @@
                     ※北海道・沖縄県への配送は、追加送料として別途+800円を頂戴いたします。<br>
                     ※法人様・大口注文をご希望の際は、別途お問い合わせください。
                 </p>
+            </div>
+        </section>
+
+        <!-- ⑤-2 Product Info (Spec) -->
+        <section class="section" id="spec" style="background-color: #fff; border-top: 1px solid #eee;">
+            <div class="container">
+                <div class="text-center">
+                    <span class="section__label">Specification</span>
+                    <h2 class="section__title">製品詳細</h2>
+                </div>
+
+                <div class="kc-spec-layout">
+                    <!-- How to Eat -->
+                    <div class="kc-how-to-eat">
+                        <h3>お召し上がり方</h3>
+                        <p>
+                            そのままでも十分においしくお召し上がりいただけますが、缶ごと約5分湯煎していただくと、より一層ふっくらと炊き立てのような美味しさをお楽しみいただけます。<br>
+                            <br>
+                            <span
+                                style="font-size: 0.85rem; color: #e50012;">※缶が熱くなりますので、取り出し時および開缶時にはやけどに十分ご注意ください。</span>
+                        </p>
+                    </div>
+
+                    <!-- Spec Table -->
+                    <div class="kc-spec-table-wrap">
+                        <table class="kc-spec-table">
+                            <tr>
+                                <th>名称</th>
+                                <td>米飯類</td>
+                            </tr>
+                            <tr>
+                                <th>原材料名</th>
+                                <td>精米（国産）、食塩</td>
+                            </tr>
+                            <tr>
+                                <th>内容量</th>
+                                <td>150g</td>
+                            </tr>
+                            <tr>
+                                <th>賞味期限</th>
+                                <td>製造から3年（缶底部に記載）</td>
+                            </tr>
+                            <tr>
+                                <th>保存方法</th>
+                                <td>直射日光、高温多湿を避けて常温で保存</td>
+                            </tr>
+                            <tr>
+                                <th>販売者</th>
+                                <td>一般社団法人 十郷<br>新潟県岩船郡関川村大字高田81-2</td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
             </div>
         </section>
 
