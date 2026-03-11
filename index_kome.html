@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>【テスト用】一般社団法人 十郷 (JUGO) | 米缶リリース特別版</title>
+    <meta name="description" content="「食のセーフティネットを、すべての人へ。」一般社団法人十郷は、食の循環を通じて農業の未来と地域の安心をつくる団体です。">
+    <!-- Favicon -->
+    <link rel="icon" href="assets/images/favicon.png" type="image/png">
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Shippori+Mincho:wght@500;700&display=swap"
+        rel="stylesheet">
+
+    <style>
+        /* ==========================================================================
+           Special Hero for Kome-can Release (Test Version)
+           ========================================================================== */
+        .hero--kome {
+            height: 95vh;
+            min-height: 650px;
+            background-color: #06070a;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+            color: #fff;
+        }
+
+        @media (max-width: 991px) {
+            .hero--kome {
+                height: 80vh;
+                min-height: 550px;
+                padding: 0;
+            }
+        }
+
+        /* Stronger gradient overlay for text readability */
+        .hero--kome::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.6) 40%, rgba(0,0,0,0) 100%);
+            z-index: 1;
+        }
+
+        @media (max-width: 991px) {
+            .hero--kome::before {
+                background: linear-gradient(180deg, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.5) 40%, rgba(0,0,0,0.8) 100%);
+            }
+        }
+
+        .hero--kome__bg {
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 80%;
+            height: 100%;
+            opacity: 0.6;
+            z-index: 0;
+        }
+
+        .hero--kome__bg img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+        }
+
+        .hero--kome__inner {
+            position: relative;
+            z-index: 2;
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 100px 5% 60px;
+            display: grid;
+            grid-template-columns: 1.1fr 0.9fr;
+            align-items: center;
+            gap: 20px;
+        }
+
+        @media (max-width: 991px) {
+            .hero--kome {
+                height: auto;
+                min-height: 100vh;
+                display: block;
+                padding-top: 80px; /* Header space */
+            }
+            .hero--kome__inner {
+                display: flex;
+                flex-direction: column;
+                justify-content: flex-start;
+                padding: 45px 20px 30px; /* Better top breathing room */
+                text-align: center;
+            }
+            .hero--kome__content {
+                order: 1;
+                margin-bottom: 25px; /* Added breathing room between button and image */
+            }
+            .hero--kome__visual {
+                order: 2;
+                width: 100%;
+            }
+            .hero--kome__product-img {
+                max-width: 200px; /* Reduced for better balance */
+                margin: 0 auto;
+            }
+            .hero--kome__copy-main {
+                font-size: 2.6rem; /* Increased for mobile impact */
+                margin-bottom: 18px;
+            }
+            .hero--kome__copy-sub {
+                font-size: 1rem;
+                margin-bottom: 25px;
+            }
+            .hero--kome__badge {
+                margin-bottom: 25px;
+                padding: 6px 30px; /* Matched to detail-page-like proportions */
+            }
+        }
+
+        /* Announcement Badge - Corner Bracket Design */
+        .hero--kome__badge {
+            display: inline-block;
+            background-color: #000;
+            color: #fff;
+            border: 2px solid #e50012;
+            padding: 8px 40px;
+            margin-bottom: 40px;
+            position: relative;
+            box-shadow: 0 0 20px rgba(229, 0, 18, 0.3);
+        }
+
+        .hero--kome__badge::before,
+        .hero--kome__badge::after {
+            content: "";
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            border: 2px solid #e50012;
+        }
+
+        .hero--kome__badge::before {
+            top: -6px;
+            left: -6px;
+            border-right: none;
+            border-bottom: none;
+        }
+
+        .hero--kome__badge::after {
+            bottom: -6px;
+            right: -6px;
+            border-left: none;
+            border-top: none;
+        }
+
+        .hero--kome__badge span {
+            color: #fff;
+            font-size: 1.1rem;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+        }
+
+        .hero--kome__copy-main {
+            display: block;
+            font-family: var(--font-serif);
+            font-size: clamp(2rem, 4.5vw, 3.8rem);
+            font-weight: 700;
+            line-height: 1.25;
+            margin-bottom: 20px;
+            letter-spacing: 0.08em;
+        }
+
+        .hero--kome__copy-sub {
+            display: block;
+            font-size: clamp(0.95rem, 1.5vw, 1.15rem);
+            font-weight: 500;
+            letter-spacing: 0.05em;
+            color: rgba(255,255,255,0.85);
+            margin-bottom: 40px;
+            line-height: 1.9;
+            max-width: 540px;
+        }
+
+        @media (max-width: 991px) {
+            .hero--kome__copy-sub {
+                margin-left: auto;
+                margin-right: auto;
+            }
+        }
+
+        .hero--kome__product-img {
+            width: 100%;
+            max-width: 500px; /* Reduced from 580px for PC balance */
+            height: auto;
+            filter: drop-shadow(0 15px 40px rgba(0,0,0,0.6));
+            animation: productFloat 5s infinite ease-in-out;
+        }
+
+        @keyframes productFloat {
+            0%, 100% { transform: perspective(1000px) rotateY(-5deg) translateY(0); }
+            50% { transform: perspective(1000px) rotateY(-5deg) translateY(-20px); }
+        }
+
+        .hero--kome__cta {
+            display: flex;
+            gap: 20px;
+        }
+
+        @media (max-width: 991px) {
+            .hero--kome__cta {
+                justify-content: center;
+            }
+        }
+
+        /* Buttons in Dark Theme */
+        .btn--gold {
+            background-color: var(--color-gold);
+            color: #fff;
+            border: 2px solid var(--color-gold);
+            box-shadow: 0 10px 20px rgba(197, 160, 89, 0.3);
+        }
+
+        .btn--gold:hover {
+            background-color: transparent;
+            color: var(--color-gold);
+        }
+
+        .btn--white-outline {
+            border: 2px solid #fff;
+            color: #fff;
+        }
+
+        .btn--white-outline:hover {
+            background-color: #fff;
+            color: #000;
+        }
+
+        /* Adjust section fonts */
+        .section--kome-intro {
+            background-color: #0d0f14;
+            color: #fff;
+            border-top: 1px solid rgba(255,255,255,0.05);
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Header -->
+    <header class="header">
+        <div class="header__inner">
+            <h1 class="header__logo">
+                <a href="index.html">
+                    <img src="assets/images/logo_lg.png" alt="JUGO">
+                    <span class="header__logo-text">一般社団法人 十郷</span>
+                </a>
+            </h1>
+            <nav class="header__nav">
+                <ul>
+                    <li><a href="business.html">Business</a></li>
+                    <li><a href="products.html">Products</a></li>
+                    <li><a href="company.html">Company</a></li>
+                    <li><a href="contact.html" class="btn btn--nav">Contact</a></li>
+                </ul>
+            </nav>
+            <button class="header__menu-trigger" aria-label="Menu">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </header>
+
+    <main>
+        <!-- Specialized Kome-can Hero Section -->
+        <section class="hero--kome">
+            <div class="hero--kome__bg">
+                <img src="kome-can/assets/images/kome_can_scene_disaster.png" alt="">
+            </div>
+            <div class="hero--kome__inner">
+                <div class="hero--kome__content">
+                    <div class="hero--kome__copy">
+                        <h2 class="hero--kome__copy-main">
+                            非日常に、<br>
+                            いつもの「美味しい」を。
+                        </h2>
+                        <p class="hero--kome__copy-sub">
+                            水・火・電気、一切不要。0秒で開く、食の保険「米缶」。<br>
+                            3月11日（水）より、予約販売開始。
+                        </p>
+                    </div>
+                    <div class="hero--kome__cta">
+                        <a href="kome-can/index.html" class="btn btn--gold">米缶の詳細・ご購入はこちら</a>
+                    </div>
+                </div>
+                <div class="hero--kome__visual">
+                    <img src="kome-can/assets/images/komekan_transparent02.png" alt="米缶" class="hero--kome__product-img">
+                </div>
+            </div>
+        </section>
+
+        <!-- Existing Content Follows (for consistency) -->
+        <!-- Mission Section -->
+        <section class="mission section">
+            <div class="container text-center">
+                <span class="section__label">Our Mission</span>
+                <h3 class="section__title">「もったいない」と<br>「足りない」をつなぐ。</h3>
+                <p class="mission__text">
+                    「お腹が空いた」と言えない子供たちがいます。<br>
+                    後継者がおらず、田んぼを手放さざるを得ない農家さんがいます。<br>
+                    稲作ができる豊かな土地があるのに、それが活かされていない現状。<br>
+                    <br>
+                    十郷は、このふたつをつなぐハブになります。<br>
+                    私たちは食を通じて、日本の未来を支える循環を作ります。
+                </p>
+                <div class="mission__cta">
+                    <a href="company.html" class="btn btn--outline">十郷の想い・代表挨拶を見る</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Ecosystem Section -->
+        <section class="ecosystem section bg-gray">
+            <div class="container">
+                <div class="section__header text-center">
+                    <span class="section__label">Our Business</span>
+                    <h3 class="section__title">食の循環をつくる、<br>4つの事業。</h3>
+                    <p class="section__lead">
+                        「作る」「備える」「届ける」「つなぐ」。<br>
+                        これらが連携し、地域に笑顔が回り続けるエコシステムを生み出します。
+                    </p>
+                </div>
+
+                <div class="ecosystem__visual">
+                    <div class="cycle-grid">
+                        <div class="cycle-card step-1">
+                            <span class="step-num">01</span>
+                            <h3>作る</h3>
+                            <p>農業・空き家再生</p>
+                        </div>
+                        <div class="cycle-arrow arrow-1-2"></div>
+                        <div class="cycle-card step-2">
+                            <span class="step-num">02</span>
+                            <h3>備える</h3>
+                            <p>防災備蓄食</p>
+                        </div>
+                        <div class="cycle-arrow arrow-2-3"></div>
+                        <div class="cycle-card step-3">
+                            <span class="step-num">03</span>
+                            <h3>届ける</h3>
+                            <p>フードトラック</p>
+                        </div>
+                        <div class="cycle-arrow arrow-3-4"></div>
+                        <div class="cycle-card step-4">
+                            <span class="step-num">04</span>
+                            <h3>つなぐ</h3>
+                            <p>地域イベント</p>
+                        </div>
+                        <div class="cycle-arrow arrow-4-1"></div>
+                        <div class="cycle-center">
+                            <p class="cycle-center-text">笑顔の<br>循環</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="ecosystem__cta text-center">
+                    <a href="business.html" class="btn btn--primary">事業詳細・食の循環について</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Products Section -->
+        <section class="products-top section">
+            <div class="container">
+                <div class="section__header text-center">
+                    <span class="section__label">Products</span>
+                    <h3 class="section__title">十郷のめぐみ</h3>
+                </div>
+                <div class="products-grid">
+                    <a href="products.html#jugo-rice" class="product-card">
+                        <div class="product-card__image">
+                            <img src="assets/images/jugo_mai.jpg" alt="十郷米" style="object-fit: contain; padding: 8px; background-color: #000;">
+                        </div>
+                        <div class="product-card__content">
+                            <h4>十郷米</h4>
+                            <p>耕作放棄地から蘇った奇跡のお米。</p>
+                            <span class="arrow-link">View More</span>
+                        </div>
+                    </a>
+                    <a href="kome-can/index.html" class="product-card">
+                        <div class="product-card__image">
+                            <img src="kome-can/assets/images/kome_can_premium_black.png" alt="米缶" style="object-fit: contain; padding: 4px; background-color: #06070a;">
+                        </div>
+                        <div class="product-card__content">
+                            <h4>米缶</h4>
+                            <p>いつでも、どこでも、炊きたての味。</p>
+                            <span class="arrow-link">View More</span>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer__inner">
+                <div class="footer__logo">
+                    <h2>一般社団法人 十郷</h2>
+                    <p>〒959-3252 新潟県岩船郡関川村大字高田81-2</p>
+                </div>
+                <div class="footer__nav">
+                    <ul>
+                        <li><a href="index.html">Top</a></li>
+                        <li><a href="business.html">Business</a></li>
+                        <li><a href="products.html">Products</a></li>
+                        <li><a href="company.html">Company</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer__copy">
+                &copy; 2026 一般社団法人 十郷 All Rights Reserved.
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+
+</html>

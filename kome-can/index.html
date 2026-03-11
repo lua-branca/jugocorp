@@ -50,6 +50,13 @@
             padding-top: 70px;
         }
 
+        @media (max-width: 900px) {
+            .kc-hero {
+                display: block;
+                padding-top: 80px; /* Match top page header offset */
+            }
+        }
+
         .kc-hero__bg-img {
             position: absolute;
             top: 50%;
@@ -64,22 +71,22 @@
         .kc-hero__content {
             position: relative;
             z-index: 2;
-            display: flex;
+            display: grid; /* Changed to grid for better side-by-side control */
+            grid-template-columns: 1.1fr 0.9fr;
             align-items: center;
-            gap: 60px;
+            gap: 40px;
             width: 100%;
-            max-width: 1100px;
-            padding: 80px 40px 60px;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px 40px 60px; /* Reduced top from 80px */
             text-align: left;
         }
 
         .kc-hero__text {
-            flex: 1 1 500px;
             color: #fff;
         }
 
         .kc-hero__product-wrap {
-            flex: 0 0 340px;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -87,26 +94,27 @@
 
         .kc-hero__product-wrap img {
             width: 100%;
-            max-width: 320px;
-            filter: drop-shadow(0 20px 60px rgba(197, 160, 89, 0.5));
+            max-width: 500px; /* Increased to match top page PC */
+            filter: drop-shadow(0 20px 60px rgba(0, 0, 0, 0.7));
             animation: floatImg 5s ease-in-out infinite alternate;
         }
 
-        @media (max-width: 900px) {
+        @media (max-width: 991px) {
             .kc-hero__content {
+                display: flex;
                 flex-direction: column;
                 text-align: center;
-                padding: 80px 24px 60px;
-                gap: 40px;
+                padding: 20px 20px 80px; /* Reduced top to pull text up */
+                gap: 20px;
             }
-
+            .kc-hero__text {
+                order: 1;
+            }
             .kc-hero__product-wrap {
-                flex: 0 0 auto;
-                order: -1;
+                order: 2; /* Image drops to bottom on Tablet/Mobile */
             }
-
-            .kc-hero__cta-group {
-                justify-content: center;
+            .kc-hero__product-wrap img {
+                max-width: 280px; /* Increased for better visual impact on mobile */
             }
         }
 
@@ -121,7 +129,7 @@
             letter-spacing: -0.02em;
             padding: 8px 40px;
             border-radius: 0;
-            margin-bottom: 50px;
+            margin-bottom: 24px;
             box-shadow: 0 0 20px rgba(229, 0, 18, 0.3);
             position: relative;
             text-shadow: 0 0 5px rgba(255, 255, 255, 0.2);
@@ -152,16 +160,18 @@
 
         .kc-hero__title {
             font-family: var(--font-serif);
-            font-size: 4.5rem;
+            font-size: clamp(2.5rem, 4vw, 3.2rem); /* Dynamic scaling with cap */
             font-weight: 700;
             line-height: 1.3;
-            margin-bottom: 20px;
+            margin-bottom: 25px;
             letter-spacing: 0.05em;
         }
 
         @media (max-width: 768px) {
             .kc-hero__title {
-                font-size: 2.8rem;
+                font-size: 2.6rem; /* Synced with top page mobile size */
+                margin-bottom: 20px;
+                line-height: 1.3;
             }
         }
 
@@ -177,16 +187,17 @@
         /* Scroll Indicator */
         .kc-scroll-down {
             position: absolute;
-            bottom: 40px;
+            bottom: 30px; /* Kept tight to the bottom */
             left: 50%;
             transform: translateX(-50%);
             display: flex;
             flex-direction: column;
             align-items: center;
-            color: rgba(255, 255, 255, 0.6);
+            color: #fff;
             font-size: 0.8rem;
-            letter-spacing: 0.2em;
+            letter-spacing: 0.5em;
             text-transform: uppercase;
+            z-index: 10;
             animation: bounce 2s infinite;
         }
 
@@ -376,7 +387,7 @@
         /* Scene */
         .kc-scene-grid {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Gracefully wrap to prevent text overflow */
             gap: 24px;
             margin-top: 60px;
         }
@@ -427,8 +438,10 @@
 
         .kc-scene-card__ja {
             font-family: var(--font-serif);
-            font-size: 1.25rem;
+            font-size: clamp(1.05rem, 2vw, 1.25rem); /* Dynamic scale to prevent cutoff on tablets */
             font-weight: 700;
+            word-break: keep-all; /* Prevent unnatural breaks */
+            line-height: 1.4;
         }
 
         .kc-scene-card__desc {
@@ -809,10 +822,10 @@
                     </p>
                 </div>
                 <div class="kc-hero__product-wrap">
-                    <img src="assets/images/komekan_transparent.png" alt="米缶 KOME CAN">
+                    <img src="assets/images/komekan_transparent02.png" alt="米缶 KOME CAN">
                 </div>
             </div>
-
+            
             <div class="kc-scroll-down">Scroll</div>
         </section>
 
@@ -893,8 +906,8 @@
         <section class="section bg-gray">
             <div class="container">
                 <div class="text-center">
-                    <span class="section__label">Scene</span>
-                    <h2 class="section__title">こんな時に、米缶。</h2>
+                    <span class="section__label">SCENE</span>
+                    <h2 class="section__title" style="font-size: clamp(2rem, 5vw, 2.8rem); line-height: 1.4; word-break: keep-all;">こんな時に、米缶。</h2>
                 </div>
                 <div class="kc-scene-grid">
                     <div class="kc-scene-card">
