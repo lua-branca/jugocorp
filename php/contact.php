@@ -66,11 +66,40 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         exit;
     }
 
+    // --- お問合せ番号の採番ロジック ---
+    $counter_file = 'inquiry_counter.dat';
+    $current_month = date('ym');
+    $count = 1;
+
+    if (!file_exists($counter_file)) {
+        file_put_contents($counter_file, $current_month . ',1');
+    } else {
+        $fp = fopen($counter_file, 'r+');
+        if (flock($fp, LOCK_EX)) {
+            $line = trim(fgets($fp));
+            if ($line) {
+                list($saved_month, $saved_count) = explode(',', $line);
+                if ($saved_month === $current_month) {
+                    $count = (int)$saved_count + 1;
+                }
+            }
+            rewind($fp);
+            ftruncate($fp, 0);
+            fwrite($fp, $current_month . ',' . $count);
+            fflush($fp);
+            flock($fp, LOCK_UN);
+        }
+        fclose($fp);
+    }
+    $inquiry_id = $current_month . 'Q' . sprintf('%03d', $count);
+    // ----------------------------
+
     // Send to Google Sheets (GAS)
     $gas_data = [
+        'inquiry_id' => $inquiry_id,
         'name' => $name,
         'email' => $email,
-        'phone' => $phone,
+        'phone' => "'" . $phone, // 0落ち対策
         'subject' => $subject_input,
         'message' => $message
     ];
@@ -85,12 +114,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // ---------------------------------------------------------
     // User Auto-Reply Email
     // ---------------------------------------------------------
-    $user_subject = "【十郷(JUGO)】お問い合わせありがとうございます";
+    $user_subject = "【十郷(JUGO)】お問い合わせありがとうございます [番号: $inquiry_id]";
 
     $user_body = "{$name} 様\n\n";
     $user_body .= "この度はお問い合わせいただき、誠にありがとうございます。\n";
     $user_body .= "以下の内容でメッセージを受け付けました。\n\n";
     $user_body .= "--------------------------------------------------\n";
+    $user_body .= "■お問い合わせ番号：{$inquiry_id}\n";
     $user_body .= "■お名前：{$name}\n";
     $user_body .= "■メールアドレス：{$email}\n";
     $user_body .= "■電話番号：{$phone}\n";
@@ -106,18 +136,21 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // ---------------------------------------------------------
     // Admin Notification Email
     // ---------------------------------------------------------
-    $admin_subject = "【十郷】Webサイトから新しいお問い合わせがありました（{$name}様）";
+    $admin_subject = "【十郷】Webからのお問い合わせ [$inquiry_id]（{$name}様）";
 
     $admin_body = "Webサイトのコンタクトフォームより、新しいお問い合わせがありました。\n";
     $admin_body .= "このメールに返信すると、お問い合わせ者（{$email}）へメールが送れます。\n\n";
     $admin_body .= "【お問い合わせ内容】\n";
     $admin_body .= "--------------------------------------------------\n";
+    $admin_body .= "■お問い合わせ番号：{$inquiry_id}\n";
     $admin_body .= "■お名前：{$name}\n";
     $admin_body .= "■メールアドレス：{$email}\n";
     $admin_body .= "■電話番号：{$phone}\n";
     $admin_body .= "■件名：{$subject_input}\n";
     $admin_body .= "■メッセージ：\n{$message}\n";
     $admin_body .= "--------------------------------------------------\n\n";
+    $admin_body .= "▼最新のお問い合わせ一覧（スプレッドシート）はこちら：\n";
+    $admin_body .= "https://docs.google.com/spreadsheets/d/1mJPRDqa_vcIRZWZpJLKRh94DBDTLoBGFHPezZ1Z3KTM/edit?gid=0#gid=0\n";
 
     // Send Emails
     mb_language("Japanese");
@@ -127,7 +160,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     mb_send_mail($email, $user_subject, $user_body, $user_headers);
 
     // Return JSON success
-    echo json_encode(['result' => 'success']);
+    echo json_encode(['result' => 'success', 'inquiry_id' => $inquiry_id]);
     exit;
 
 } else {
