@@ -99,7 +99,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         'inquiry_id' => $inquiry_id,
         'name' => $name,
         'email' => $email,
-        'phone' => "'" . $phone, // 0落ち対策
+        'phone' => $phone, // 0落ち対策はGAS側で行うため、ここではそのまま送信する
         'subject' => $subject_input,
         'message' => $message
     ];
