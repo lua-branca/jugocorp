@@ -116,8 +116,8 @@ if ($payment_method === 'bank') {
     $user_body .= "三菱UFJ銀行 新潟支店\n";
     $user_body .= "店番：731 普通 0775865\n";
     $user_body .= "シヤ）ジユウゴウ\n\n";
-    $user_body .= "※お振込時、お名前の前に【注文番号：$order_id】を入力してください。\n";
-    $user_body .= "（例：$order_id " . $post_data['name'] . "）\n\n";
+    $user_body .= "※お振込時、お名前の前に【注文番号：" . $order_id . "】を入力してください。\n";
+    $user_body .= "（例：" . $order_id . " " . $post_data['name'] . "）\n\n";
     $user_body .= "※お振込手数料はお客様にてご負担をお願いいたします。\n";
 } else {
     $user_body .= "【重要：お支払いについて】\n";
